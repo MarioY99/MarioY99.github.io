@@ -1,0 +1,524 @@
+/* Al momento de agregar mis estilos lo hago de la siguiente manera para hacer buenas prácticas y tener un mejor orden para que al momento de regresar a los estilos saber qué es lo que está impactando a qué.
+    1.- Posicionamiento. (Position fix, position relative, todos estos detalles que me ayudan a posicionar en el layout mi elemento
+    2.- Modelo de caja (box model) ya sea el margin, padding, tamaño: width heigth, etc.
+    3.- Tipografía.
+    4.- Visuales-
+    5.- Miscelaneo u otros.
+*/
+:root {
+    /*Colores*/
+    --bitcoin-orange: #F7931A;
+    --soft-orange: #FFE9D5;
+    --secondary-blue: #1A9AF7;
+    --soft-blue: #E7F5FF;
+    --warm-black: #201E1C;
+    --warm2-black: #282623;
+    --grey: #BABABA;
+    --off-white: #FAF8F7;
+    --just-white: #FFFFFF;
+}
+* { /*En nuestro selector universal coloco los estilos que quiero que sean universales para cada elemento de mi html*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%; /*Para utilizar el rem*/
+    font-family: 'DM Sans', sans-serif;
+    /*font-family: 'Inter', sans-serif;    En vista de que la mayor parte de mi proyecto va a ser con fuente de DM Sans, la dejaré como fuente principal y cuando vaya a hacer uso de la otra fuente, en ese mismo apartado, haré uso del estilo de css para ella.*/
+    scroll-behavior: smooth;
+}
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 320px; /*Para que nuestro width no se haga más chico que 320 pixeles que es la dimensión más pequeña en celulares*/
+    height: 334px;
+    text-align: center;
+    background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
+}
+header img {
+    width: 15rem;
+    height: 2.4rem;
+    margin-top: 6rem;
+    align-self: center; /*Esta es la manera de alinear un elemento que esté encapsulado en un padre que tenga display flex.*/
+}
+.header--title--container {
+    width: 90%;
+    min-width: 28.8rem; /*Con esto decimos que cuando llegue a este width no se siga haciendo más pequeño*/
+    max-width: 90rem;  /*Y acá es para que cuando la pantalla crezca de 900 px que no se haga más grande nuestro header.*/
+    height: 21.8rem;
+    margin-top: 4rem;
+    text-align: center; /*Alineando mi texto al centro*/
+    align-self: center; /*Alineando mi contenedor al centro de la pantalla*/
+}
+.header--title--container h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem; /*El line height es el ancho que tiene el espacio de salto de una línea a otra.*/
+    color: var(--just-white);
+}
+.header--title--container p {
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft-orange);
+}
+.header--title--container .header--button {
+    position: absolute;
+    top: calc(100% - 48px/2); /*El margen con respecto al top, va a ser el 100% del tamaño del contenedor padre menos la mitad del tamaño del botón, para que quede centrado en toda la mitad de las 2 secciones.*/
+    left: calc(50% - 114.5px); /*Esto nos genera un cálculo en el que decimos con el 50% le decimos que queremos que vaya al centro pero como es un botón bastante grande, al llevarlo al centro, tenemos que quitarle unos pixeles para que se nos acomode bien en el centro como corresponde.Y estos pixeles que le vamos a quitar va a ser la división del tamaño total del contenedor entre 2*/
+    display: block;
+    padding: 1.5rem;
+    width: 22.9rem;
+    height: 4.8rem;
+    background-color: var(--off-white);
+    /*Sombra*/
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--warm2-black);
+}
+/*Agregamos el icono al span*/
+.header--button span {
+    display: inline-block; /*Para que se pueda ver el background que le vamos a colocar al span (nuestro icono) tenemos que cambiarle el display, ya que la etiqueta span tiene por defecto un inline, entonces tenemos que hacer que sea o block, o inline block para que se pueda ver nuestro icono al momento de agregarlo*/
+    width: 1.3rem;
+    height: 0.8rem;
+    margin-left: 1rem;
+    background-image: url('./assets/icons/down-arrow.svg'); /*De esta manera podemos agregar una imagen de background con css*/
+}
+main{
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    background-color: var(--off-white);
+}
+.main-exchange-container {
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.main-exchange-container--title {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px; /*Si la pantalla crece y llega a 900px no crecerá más*/
+    margin: 0 auto;
+}
+.main-exchange-container .backgroundImg {
+    width: 200px;
+    height: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-image: url(./assets/img/Bitcoin.svg);
+    background-size: cover; /*Esto para que el tamaño del background (En este caso nuestra imagen) cubra el tamaño del contenedor.*/
+    background-position: center; /*Para que siempre, sin importar el tamaño del contenedor nuestra imagen esté posicionada en el centro de él.*/
+    background-repeat: no-repeat; /*Funciona en casos que tengamos imágenes más pequeñas, lo que hace el background image es replicar la imagen para que cubra todo el contenedor, con esto hacemos que no la replique y en lugar de eso la empieza a estirar al tamaño del contenedor sin deformarla para que la podamos apreciar de manera completa.*/
+}
+.main-exchange-container--title h2 {
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--warm-black);
+}
+.main-exchange-container--title p {
+    margin-bottom: 50px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 18px;
+    color: #757575;
+}
+.currency {
+    display: flex;
+    align-items: baseline;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+}
+.currency__container {
+    width: 90%;
+    min-width: 288px;
+    max-width: 500px;
+    scroll-snap-align: center;
+    min-width: 320px;
+    max-width: 500px;
+    height: 360px;
+}
+.currency__container .currency__container-title {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    font-family: 'DM Sans', sans-serif;
+    color: #FF9536;
+}
+.currency__table-container,
+.comisions__table-container {
+    position: relative;
+    width: 70%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+}
+.currency__table-container table,
+.comisions__table-container table {
+    width: 100%; /*Le ponemos tamaños del 100% para que la tabla en sí utilice todo el tamaño que tiene su contenedor padre.*/
+    height: 100%;
+}
+.currency__table-container td,
+.comisions__table-container td {
+    width: 50%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--grey);
+    background-color: var(--just-white);
+}
+.table__top-left {
+    border-radius: 8px 0 0 0;
+}
+.table__top-right {
+    border-radius: 0 8px 0 0;
+}
+.table__bottom-left {
+    border-radius: 0 0 0 8px;
+}
+.table__bottom-right {
+    border-radius: 0 0 8px 0;
+}
+.currency__table-container .table--right,
+.comisions__table-container .table--right {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.7rem;
+    color: #757575;
+}
+.currency__table-container .down {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('./assets/icons/trending-down.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.currency__table-container .up {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('./assets/icons/trending-up.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.currency__table-date {
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-orange);
+    border-radius: 8px;
+}
+.currency__table-date p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: var(--warm2-black);
+}
+.comisions .comisions__container-title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 2.3rem;
+    color: var(--secondary-blue);
+}
+.comisions__table-date {
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-blue);
+    border-radius: 8px;
+}
+.comisions__table-date p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: var(--warm2-black);
+}
+.table-go-right {
+    position: absolute;
+    right: -40px;
+    padding: 15px;
+    top: calc(50% - 20px);
+}
+.table-go-left {
+    position: absolute;
+    left: -40px;
+    padding: 15px;
+    top: 105px;
+    right: auto;
+}
+.table-go-left img {
+    transform: rotate(90deg);
+}
+.product-info {
+    position: relative;
+    width: 100%;
+    min-width: 320px; /*Es importante poner el mi width porque de esa forma podemos controlar que nunca se haga más pequeño de 320px ya que no hay teléfonos celulares con pantalas más pequeñas a 320px*/
+    height: auto; /*Y de esta forma hacemos que el alto del contenedor sea automático y que se lo den el mismo contenido que tenga*/
+    padding: 20px 10px;
+    background: var(--warm-black);
+}
+.product-info--batata-logo {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    top: -10px;
+    left: calc(50% - 20px);
+    background-image: url(./assets/icons/batata.svg);
+}
+.product-info__title {
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+.product-info__title h2{
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.product-info__title p {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+.product-info__card {
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px; /*Le colocamos un max width porque, recordemos que hacemos un diseño responsivo, de esta manera, con el max width, podemos delimitar el crecimiento de estas tarjetas, para que no se vean mal al momento de crecer a las demás pantallas.*/
+    height: 150px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: var(--warm2-black);
+    border-radius: 8px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.16);
+}
+.product-info__card .icon-card {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.clock {
+    background-image: url("./assets/icons/clock.svg");
+}
+.eye {
+    background-image: url("./assets/icons/eye.svg");
+}
+.dollar-sign {
+    background-image: url("./assets/icons/dollar-sign.svg");
+}
+.check-circle {
+    background-image: url("./assets/icons/check-circle.svg");
+}
+.product-info__card-title {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+.product-info__card-info {
+    margin: 0 auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+.bitcoin-img-container {
+    width: 100%;
+    min-width: 320px;
+    height: 50vh; /*El 50vh es el 50% de la pantalla en la que estamos actualmente, por ejemplo, estoy en una pantalla de computador, y va a ser la mitad de la pantalla, y si estoy en una pantalla de teléfono, será la mitad del teléfono, siempre será la mitad de la pantalla.*/
+    text-align: center;
+    background-image: url("./assets/img/bitcoinbaby2x.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bitcoin-img-container h2 {
+    padding-top: 60px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.plans {
+    width: 100%;
+    min-width: 320px;
+    padding: 65px 0;
+    text-align: center;
+    background-color: var(--off-white);
+}
+.plans__title {
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+.plans__title h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--warm-black);
+}
+.plans__title p {
+    padding-top: 24px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #757575;
+}
+.plans__cards-slider {
+    display: flex;
+    height: 316px; /*Cada una de nuestras tarjetas tiene un alto de 270, entonces le decimos que el contenedor debe ser más alto que las tarjetas que tenemos*/
+    /* gap: 50px; hay que revisar en qué versiones se encuentra disponible. se podría usar hoy en día porque está en muchas versiones de navegadores */
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+.plans__card {
+    position: relative;
+    scroll-snap-align: center; /*Intenta centrar la tarjeta automáticamente para cuando se haga el scroll te lleve al centro del elemento y puedas ver el elemento.*/
+    width: 70%;
+    min-width: 190px;/*Para que no se haga más pequeño que esto.*/
+    max-width: 300px; /*Para que no se haga más grande, cuando esté pasando de un dispositivo mobile a tablet que la tarjeta no sea tan grande y que podamos reposicionar el contenido*/
+    height: 250px;
+    margin: 50px 5px 0;
+    padding: 0 15px;
+    background-color: var(--just-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+}
+.recommended {
+    position: absolute;
+    width: 120px;
+    height: 31px;
+    padding: 8px;
+    left: calc(50% - 60px);
+    top: -15px;
+    font-size: 1.2rem;
+    background-color: var(--bitcoin-orange);
+    border-radius: 8px;
+    color: var(--just-white);
+}
+.plans__card-title {
+    padding-top: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: black;
+}
+.plans__card-price {
+    position: relative;
+    padding: 5px 0;
+    font-size: 5.2rem;
+    font-weight: bold;
+    line-height: 6.3rem;
+    font-family: 'Inter', sans-serif;
+    color: black;
+}
+.plans__card-price::before {
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 45px);
+    content: '$';
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1;
+}
+.plans__card-saving {
+    font-size: 1.2rem;
+    color: #757575;
+}
+.plans__card-ca {
+    width: 150px;
+    height: 48px;
+    margin-top: 20px;
+    background-color: var(--off-white);
+    border: 2px solid var(--bitcoin-orange);
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--warm-black);
+}
+.plans__card-ca span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('./assets/icons/orange-right-arrow.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    vertical-align: text-bottom; /*Sirve para alinear el icono con el texto del botón*/
+}
+footer {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: var(--bitcoin-orange);
+}
+footer section {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+footer .footer-left ul {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+}
+.footer-left li {
+    margin: 10px 0;
+}
+.footer-left a {
+    text-decoration: none;
+    color: var(--just-white);
+}

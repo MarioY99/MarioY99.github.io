@@ -1,0 +1,17 @@
+.currency {
+    display: flex;
+    width: 930px;
+    margin: 0 auto;
+}
+.currency__container a {
+    visibility: hidden;
+}
+.product-info__cards-container {
+    display: flex; /*Para que el contenido se mueva de manera flexible en su contenedor*/
+    flex-wrap: wrap; /*Para que nuestro contenido esté envuelto en nuestro contenedor y que abarque el mismo espacio*/
+    width: 930px; /*Porque a partir de este punto generamos el breakpoint*/
+    margin: 0 auto; /*Para que no crezca más y esté centrado.*/
+}
+.plans__cards-slider {
+    justify-content: center;
+}
